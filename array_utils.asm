@@ -150,8 +150,8 @@ end_validate:
     sne $t6, $t1, $zero     # Set $t6 to 1 if $t1 (flag for checking pairs) is not equal to 0 (indicating an issue with the pairs)
     or $t5, $t5, $t6        # Combine the results of the above checks: $t5 will be 1 if either $t0 != $t3 or $t1 != 0
     beqz $t5, valid         # Branch to 'valid' label if $t5 is 0 (both checks passed, meaning the input is valid)
-    li $v0, 0                # Else, set return value to 0 (invalid)
-    jr $ra                   # Return to the caller
+    li $v0, 0               # Else, set return value to 0 (invalid)
+    jr $ra                  # Return to the caller
 
 valid:
     move $v0, $t0            # Set return value to the count of valid pairs
